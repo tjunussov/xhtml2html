@@ -1,0 +1,28 @@
+{
+  "name": "xhtml2html",
+  "version": "1.0.0",
+  "description": "Convert your xhtml files with template specified in stylesheet PI",
+  "main": "xhtml2html.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjunussov/xhtml2html.git"
+  },
+  "keywords": [
+    "xsl",
+    "xml",
+    "nodejs",
+    "xhtml"
+  ],
+  "author": "TJey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tjunussov/xhtml2html/issues"
+  },
+  "homepage": "https://github.com/tjunussov/xhtml2html#readme"
+}
