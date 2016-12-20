@@ -29,7 +29,7 @@ find /myXhtmlFolder -type f -name "*.xhtml" -execdir node xhtml2html.js {} \;
 - libxslt with optioin `xsl:output mode="html"` converts UTF-8 to Unicode ASCI entities, so script converts it back
 - Empty xmlns removal
 
-## Dependacies
+## Dependencies
 - [`libxslt`](https://github.com/albanm/node-libxslt)
 - [`libxmljs`](https://github.com/libxmljs/libxmljs)
 
