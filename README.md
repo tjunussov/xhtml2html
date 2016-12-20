@@ -1,6 +1,6 @@
 ## About
 
-**xhtml2html.js**  script file converts xhtml files in folders to html
+**xhtml2html.js**  script file converts xhtml(xml) files in folder(s) to html using xsl template specfied in Porcessing Instruction stylesheet template
 
 ## Usage
 Simple run application, it will evaluate template path from PI of `<xsl-stylesheet href="mytemplate.xsl">`
@@ -28,13 +28,10 @@ find /myXhtmlFolder -type f -name "*.xhtml" -execdir node xhtml2html.js {} \;
 - Due to relative path support ( xsl:include, xsl:import, document(); ) in working folder, it is prefered to work in root folder
 - libxslt with optioin `xsl:output mode="html"` converts UTF-8 to Unicode ASCI entities, so script converts it back
 - Empty xmlns removal
-- 
 
 ## Dependacies
-```
-[libxslt](https://github.com/albanm/node-libxslt)
-[libxmljs](https://github.com/libxmljs/libxmljs)
-```
+- [`libxslt`](https://github.com/albanm/node-libxslt)
+- [`libxmljs`](https://github.com/libxmljs/libxmljs)
 
 optional dependencies
 ```
