@@ -22,11 +22,18 @@ function transformXHTML(xmlPath){
 	var xmlString = fs.readFileSync(xmlPath, 'utf8');
 		// xmlString = xmlString.replace(/ &lt;"/g,'');
 	var xml = libxml.parseXml(xmlString);
+	var params = {mode:"html"};
 
 
 	// XHTML XSL template path extracting
-	var xslPath = process.argv.length >= 4 ? process.argv[3] : extractStylesheet(xml);
+	// var xslPath = process.argv.length >= 4 ? process.argv[3] : extractStylesheet(xml);
+	var xslPath = extractStylesheet(xml);  // partial handling
 
+	if( process.argv.length >= 4) {
+		htmlPath = htmlPath.replace("html","partial.html");
+		params.fragment = 'yes';
+	}
+	
 
 	print(`XML [${process.cwd()}/${xmlPath}]`.green);
 	print(`-> XSL[${xslPath}]`.red);
@@ -42,7 +49,8 @@ function transformXHTML(xmlPath){
 	//libxslt.parse(xslDoc,function(err,xsl){
 	//libxslt.parseFile(xslPath,function(err,xsl){
 
-	var result = xsl.apply(xml,{mode:"html"}); //,{outputFormat:"document"}
+
+	var result = xsl.apply(xml,params); //,{outputFormat:"document"}
 		result = result.toString().replace(/ xmlns=\"\"/g,'');
 		result = decodeHtmlEntities(result);//entities.decode(result);
 		result = beautify_html(result, { indent_size: 2 });
